@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dbConfiguration.createTables
+        dbConfiguration.createTables()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
