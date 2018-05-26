@@ -12,10 +12,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dbConfiguration.createTables()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @IBAction func ButtonTapped(_ sender: UIButton) {
+        
+        let mainNavigationController = storyboard?.instantiateViewController(withIdentifier: "MainNavigationController") as! MainNavigationController
+        present(mainNavigationController, animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
