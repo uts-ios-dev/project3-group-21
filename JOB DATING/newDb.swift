@@ -90,9 +90,41 @@ class dbConfiguration
         }
     }
     
+    static func addData()
+    {
+        do {
+            try db.run(companyTable.insert(name <- "test_company_1",
+                                           Expression<String>("address") <- "test1 street",
+                                           Expression<String>("email") <- "test@1.com",
+                                           Expression<Int64>("phone") <- 123456
+                                           ))
+            try db.run(jobTable.insert(name <- "ios developer",
+                                       Expression<String>("salary") <- "1000/m",
+                                       Expression<String>("experience") <- "3+years",
+                                       Expression<String>("position") <- "software_developer",
+                                       Expression<Int64>("companyId") <- 1))
+            try db.run(skillTable.insert(name <- "swift"))
+            try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 1,
+                                            Expression<Int64>("skillId") <- 1))
+        }catch{
+            print(error)
+        }
+    }
+    
+    static func testQuery()
+    {
+        let query = jobTable.select(id).where(Expression<String>("position") == "software_developer")
+        let advancedQuery = jobTable.join(companyTable, on: Expression<Int64>("companyId") == companyTable[id])
+            .where(Expression<String>("position") == "software_developer")
+        for row in try! db.prepare(advancedQuery){
+            print("id:\(row[jobTable[id]]), companyId: \(row[companyTable[id]])")
+        }
+        
+        
+    }
+    
     static func createTables()
     {
-        buildDB()
         createCompanyTable()
         createJobTable()
         createSkillTable()

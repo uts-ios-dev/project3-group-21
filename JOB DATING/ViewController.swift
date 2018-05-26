@@ -12,6 +12,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        dbConfiguration.buildDB()
+        dbConfiguration.testQuery()
+        
+>>>>>>> test inserting row and querying data
         // Do any additional setup after loading the view, typically from a nib.
     }
 
