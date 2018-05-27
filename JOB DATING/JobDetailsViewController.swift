@@ -17,7 +17,6 @@ class JobDetailsViewController: UIViewController {
     }
    
     @IBAction func StartOverButton(_ sender: Any) {
-        
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
   

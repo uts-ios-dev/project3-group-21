@@ -115,7 +115,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oF-2l-yZa">
-                                            <rect key="frame" x="16" y="17" width="95" height="21"/>
+                                            <rect key="frame" x="16" y="17" width="100" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -126,7 +126,7 @@
                                 <color key="backgroundColor" red="0.24705882352941178" green="0.32941176470588235" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="CategoryName" destination="1oF-2l-yZa" id="h3n-nH-csF"/>
-                                    <segue destination="fr7-36-sgF" kind="push" id="8pF-Mr-P4g"/>
+                                    <segue destination="fr7-36-sgF" kind="push" identifier="" id="8pF-Mr-P4g"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -139,12 +139,12 @@
                         <barButtonItem key="backBarButtonItem" title="Job Category" id="94l-aw-Kg1"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="fr7-36-sgF" kind="show" id="fCW-7o-JFf"/>
+                        <segue destination="fr7-36-sgF" kind="show" identifier="showDetail" id="fCW-7o-JFf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5G-pk-3ve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="204" y="120.98950524737631"/>
+            <point key="canvasLocation" x="82" y="121"/>
         </scene>
         <!--Select Skills-->
         <scene sceneID="t4G-5Z-QYM">
@@ -210,7 +210,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUY-lb-9yy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1032.8" y="120.98950524737631"/>
+            <point key="canvasLocation" x="910" y="121"/>
         </scene>
         <!--Search Result-->
         <scene sceneID="vbC-2q-23e">
@@ -474,7 +474,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="JW1-U5-bvK"/>
-        <segue reference="Ygp-Va-otp"/>
+        <segue reference="jlS-k7-DQm"/>
         <segue reference="fCW-7o-JFf"/>
     </inferredMetricsTieBreakers>
 </document>

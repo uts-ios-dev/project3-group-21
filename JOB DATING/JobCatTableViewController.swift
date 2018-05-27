@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SQLite
 
 class JobCatTableViewController: UITableViewController {
 
@@ -45,24 +46,34 @@ class JobCatTableViewController: UITableViewController {
     func queryJobCategory() {
         
         //Query of showing the job categories goes here
-        let name1 = "Software"
-        let name2 = "Hardware"
-        
-        categories += [name1,name2]
+        let jobTable = dbConfiguration.jobTable;
+        let jobs = try! dbConfiguration.db.prepare(jobTable)
+        for job in jobs {
+            categories.append(job[Expression<String>("position")])
+        }
+        categories = Array(Set(categories))
+        categories = categories.sorted(by: { (a, b) -> Bool in
+            a <= b
+        })
     }
-    
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: "catCell", for: indexPath) as? JobCatTableViewCell)
-        
         cell?.CategoryName.text = categories[indexPath.row]
         // Configure the cell...
 
         return cell!
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is SkillsTableViewController
+        {
+            var selectedRowIndex = self.tableView.indexPathForSelectedRow
+            let vc = segue.destination as? SkillsTableViewController
+            vc?.catName = categories[selectedRowIndex!.row]
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
