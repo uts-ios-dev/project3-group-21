@@ -94,18 +94,18 @@ class dbConfiguration
     {
         do {
             try db.run(companyTable.insert(name <- "test_company_1",
-                                           Expression<String>("address") <- "test1 street",
+                                           Expression<String>("address") <- "100 Wattle street, Broadway, Sydney",
                                            Expression<String>("email") <- "test@1.com",
                                            Expression<Int64>("phone") <- 123456
                                            ))
         
             try db.run(companyTable.insert(name <- "test_company_2",
-                                           Expression<String>("address") <- "test2 street",
+                                           Expression<String>("address") <- "12/457 Goerges Avenue, Black Hights, Canberra",
                                            Expression<String>("email") <- "test@2.com",
                                            Expression<Int64>("phone") <- 1234567
             ))
             try db.run(companyTable.insert(name <- "test_company_3",
-                                           Expression<String>("address") <- "test3 street",
+                                           Expression<String>("address") <- "1134 / 2 Middle Lane, Randton, New Castle",
                                            Expression<String>("email") <- "test@3.com",
                                            Expression<Int64>("phone") <- 123678
             ))
@@ -175,17 +175,16 @@ class dbConfiguration
     {
 
 //let query = jobTable.select(id).where(Expression<String>("position") == "software_developer")
-//        let cdelete = companyTable.delete()
-//        try! db.run(cdelete)
-//        let jdelete = jobTable.delete()
-//        try! db.run(jdelete)
-//        let sdelete = skillTable.delete()
-//        try! db.run(sdelete)
-//        let jkdelete = jobSkillTable.delete()
-//        try! db.run(jkdelete)
+        let cdelete = companyTable.delete()
+        try! db.run(cdelete)
+        let jdelete = jobTable.delete()
+        try! db.run(jdelete)
+        let sdelete = skillTable.delete()
+        try! db.run(sdelete)
+        let jkdelete = jobSkillTable.delete()
+        try! db.run(jkdelete)
 
-//        let update = jobTable.filter(Expression<String>("position") == "Adriod Developer").update(Expression<String>("position") <- "Adroid Developer")
-//        try!db.run(update)
+
         let jobs = try! db.prepare(jobTable)
         for job in jobs {
             
