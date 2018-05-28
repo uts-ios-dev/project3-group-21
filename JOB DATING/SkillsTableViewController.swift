@@ -92,9 +92,8 @@ class SkillsTableViewController: UITableViewController {
     {
         if segue.destination is JobResultTableViewController
         {
+         
             let selectedRowIndexs = self.tableView.indexPathsForSelectedRows
-            print(selectedRowIndexs)
-            let vc = segue.destination as? JobResultTableViewController
             if selectedRowIndexs == nil {
                 let warning = UIAlertController(title: "Error", message: "You need to choose at least one skill", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default) {
@@ -102,11 +101,22 @@ class SkillsTableViewController: UITableViewController {
                     NSLog("Ok Pressed")
                 }
                 warning.addAction(okAction)
-                self.view?.window?.rootViewController?.present(warning, animated: true, completion: nil)
+                self.present(warning, animated: true, completion: nil)
             }
-            for selectedRowIndex in selectedRowIndexs! {
-                vc?.skillList.append(skillsList[selectedRowIndex.row])
+            else {
+                let vc = segue.destination as? JobResultTableViewController
+                print(selectedRowIndexs)
+                for selectedRowIndex in selectedRowIndexs! {
+                    
+                    print(selectedRowIndex.row)
+                    vc?.skillList.append(skillsList[selectedRowIndex.row])
+                }
+            
             }
+            
+            
+            
+           
         }
     }
 
