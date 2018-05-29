@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         dbConfiguration.buildDB()
 //        dbConfiguration.createTables()
 //        dbConfiguration.addData()
-//        dbConfiguration.testQuery()
+        dbConfiguration.testQuery()
 //        dbConfiguration.deletedata();
 //        dbConfiguration.deleteTables();
         

@@ -185,7 +185,7 @@ class dbConfiguration
         }
         let companies = try! db.prepare(companyTable)
         for company in companies {
-            print("companyId: \(company[id]), companyName: \(company[name])")
+            print("companyId: \(company[id]), companyName: \(company[name]), address: \(company[Expression<String>("address")])")
         }
         let joins = try! db.prepare(jobSkillTable)
         for join in joins {
