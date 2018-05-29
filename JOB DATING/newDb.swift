@@ -51,7 +51,7 @@ class dbConfiguration
         let tableCreate = jobTable.create { (t) in
             t.column(id, primaryKey: true)
             t.column(name)
-            t.column(Expression<String>("salary"))
+            t.column(Expression<Int64>("salary"))
             t.column(Expression<String>("experience"))
             t.column(Expression<String>("position"))
             t.column(Expression<Int64>("companyId"), references: companyTable, id)
@@ -111,22 +111,22 @@ class dbConfiguration
             ))
             
             try db.run(jobTable.insert(name <- "IOS Developer",
-                                       Expression<String>("salary") <- "7000/m",
+                                       Expression<Int64>("salary") <- 100000,
                                        Expression<String>("experience") <- "3+years",
                                        Expression<String>("position") <- "Software Developer",
                                        Expression<Int64>("companyId") <- 1))
             try db.run(jobTable.insert(name <- "Android Developer",
-                                       Expression<String>("salary") <- "5000/m",
+                                       Expression<Int64>("salary") <- 95400,
                                        Expression<String>("experience") <- "3+years",
                                        Expression<String>("position") <- "Software Developer",
                                        Expression<Int64>("companyId") <- 1))
             try db.run(jobTable.insert(name <- "Android Developer",
-                                       Expression<String>("salary") <- "5500/m",
+                                       Expression<Int64>("salary") <- 122000,
                                        Expression<String>("experience") <- "5+years",
                                        Expression<String>("position") <- "Software Developer",
                                        Expression<Int64>("companyId") <- 2))
             try db.run(jobTable.insert(name <- "IT Support",
-                                       Expression<String>("salary") <- "5500/m",
+                                       Expression<Int64>("salary") <- 777500,
                                        Expression<String>("experience") <- "5+years",
                                        Expression<String>("position") <- "IT Engineer",
                                        Expression<Int64>("companyId") <- 3))
@@ -170,25 +170,13 @@ class dbConfiguration
             print(error)
         }
     }
-    
+   
     static func testQuery()
     {
-
-//let query = jobTable.select(id).where(Expression<String>("position") == "software_developer")
-        let cdelete = companyTable.delete()
-        try! db.run(cdelete)
-        let jdelete = jobTable.delete()
-        try! db.run(jdelete)
-        let sdelete = skillTable.delete()
-        try! db.run(sdelete)
-        let jkdelete = jobSkillTable.delete()
-        try! db.run(jkdelete)
-
-
         let jobs = try! db.prepare(jobTable)
         for job in jobs {
             
-            print("JobId: \(job[id]), JobName: \(job[name]), JobPosition: \(job[Expression<String>("position")]), CompanyID: \(job[Expression<Int64>("companyId")])")
+            print("JobId: \(job[id]), JobName: \(job[name]), JobPosition: \(job[Expression<String>("position")]), Salary: \(job[Expression<Int64>("salary")]) CompanyID: \(job[Expression<Int64>("companyId")])")
         }
         let skills = try! db.prepare(skillTable)
         for skill in skills {
@@ -210,16 +198,29 @@ class dbConfiguration
         for row in try! db.prepare(advancedQuery){
             print("JobId:\(row[jobTable[id]]), JobName: \(row[jobTable[name]]), companyId: \(row[companyTable[id]]), companyName: \(row[companyTable[name]])")
         }
-       
-        
     }
-    
     static func createTables()
     {
         createCompanyTable()
         createJobTable()
         createSkillTable()
         createJobSkillTable()
+    }
+    static func deleteTables (){
+        try! db.run(companyTable.drop())
+        try! db.run(jobTable.drop())
+        try! db.run(skillTable.drop())
+        try! db.run(jobSkillTable.drop())
+    }
+    static func deletedata() {
+        let cdelete = companyTable.delete()
+        try! db.run(cdelete)
+        let jdelete = jobTable.delete()
+        try! db.run(jdelete)
+        let sdelete = skillTable.delete()
+        try! db.run(sdelete)
+        let jkdelete = jobSkillTable.delete()
+        try! db.run(jkdelete)
     }
     
 }

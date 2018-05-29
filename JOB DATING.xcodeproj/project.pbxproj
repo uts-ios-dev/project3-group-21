@@ -16,6 +16,7 @@
 		5534354420B272FE001C7CE6 /* JOB_DATINGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5534354320B272FE001C7CE6 /* JOB_DATINGUITests.swift */; };
 		942AB34720B92348002783E9 /* newDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942AB34620B92348002783E9 /* newDb.swift */; };
 		942AB3F720B92824002783E9 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942AB3EA20B927D3002783E9 /* SQLite.framework */; };
+		94785B5E20BD2314000F24CD /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94785B5D20BD2314000F24CD /* Job.swift */; };
 		FB8518A120B783400005A88A /* JobCatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8518A020B783400005A88A /* JobCatTableViewController.swift */; };
 		FB8518A320B783700005A88A /* JobCatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8518A220B783700005A88A /* JobCatTableViewCell.swift */; };
 		FB8518A520B7B65D0005A88A /* SkillsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8518A420B7B65D0005A88A /* SkillsTableViewController.swift */; };
@@ -108,6 +109,7 @@
 		5534354520B272FE001C7CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		942AB34620B92348002783E9 /* newDb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newDb.swift; sourceTree = "<group>"; };
 		942AB3DF20B927D3002783E9 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../Desktop/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
+		94785B5D20BD2314000F24CD /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		FB8518A020B783400005A88A /* JobCatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCatTableViewController.swift; sourceTree = "<group>"; };
 		FB8518A220B783700005A88A /* JobCatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCatTableViewCell.swift; sourceTree = "<group>"; };
 		FB8518A420B7B65D0005A88A /* SkillsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				FB8518A820B7B8460005A88A /* SkillsTableViewCell.swift */,
 				FB8518AC20B7C2980005A88A /* JobResultTableViewController.swift */,
 				FB8518AA20B7C2750005A88A /* JobResultTableCell.swift */,
+				94785B5D20BD2314000F24CD /* Job.swift */,
 				FB8518B020B7E0340005A88A /* JobDetailsViewController.swift */,
 				5534352A20B272FE001C7CE6 /* Assets.xcassets */,
 				5534352C20B272FE001C7CE6 /* LaunchScreen.storyboard */,
@@ -426,6 +429,7 @@
 				FB8518AB20B7C2750005A88A /* JobResultTableCell.swift in Sources */,
 				FB8518A320B783700005A88A /* JobCatTableViewCell.swift in Sources */,
 				FB8518A520B7B65D0005A88A /* SkillsTableViewController.swift in Sources */,
+				94785B5E20BD2314000F24CD /* Job.swift in Sources */,
 				FB8518A120B783400005A88A /* JobCatTableViewController.swift in Sources */,
 				FB8518AD20B7C2980005A88A /* JobResultTableViewController.swift in Sources */,
 				FB8518A920B7B8460005A88A /* SkillsTableViewCell.swift in Sources */,

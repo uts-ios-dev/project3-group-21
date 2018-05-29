@@ -14,7 +14,6 @@ class SkillsTableViewController: UITableViewController {
     var skillsList = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("catName: \(catName)")
         querySkills()
 
         // Uncomment the following line to preserve selection between presentations
@@ -66,19 +65,17 @@ class SkillsTableViewController: UITableViewController {
     func querySkills() {
         
         //Query of showing the skills goes here
-       
+
         let jobTable = dbConfiguration.jobTable
         let jobSkillTable = dbConfiguration.jobSkillTable
         let skillIDQuery = jobTable.join(jobSkillTable, on: Expression<Int64>("id") == jobSkillTable[Expression<Int64>("jobId")]).where (Expression<String>("position") == catName)
         let skillIDRows = try! dbConfiguration.db.prepare(skillIDQuery)
         for row in skillIDRows {
             let skillID = row[jobSkillTable[Expression<Int64>("skillId")]]
-            print ("skilLID: \(skillID)")
             let skillQuery = dbConfiguration.skillTable.where(Expression<Int64>("id") == skillID)
             let skills = try!dbConfiguration.db.prepare(skillQuery)
             for skill in skills {
                 skillsList.append(skill[Expression<String>("name")])
-            
             }
         }
         skillsList = Array(Set(skillsList))
@@ -105,18 +102,11 @@ class SkillsTableViewController: UITableViewController {
             }
             else {
                 let vc = segue.destination as? JobResultTableViewController
-                print(selectedRowIndexs)
                 for selectedRowIndex in selectedRowIndexs! {
-                    
-                    print(selectedRowIndex.row)
                     vc?.skillList.append(skillsList[selectedRowIndex.row])
-                }
-            
+                    vc?.categoryName = catName
+                }            
             }
-            
-            
-            
-           
         }
     }
 

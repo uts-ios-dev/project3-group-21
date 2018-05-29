@@ -9,7 +9,7 @@
 import UIKit
 
 class SkillsTableViewCell: UITableViewCell {
-
+    
     @IBOutlet var skillName : UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

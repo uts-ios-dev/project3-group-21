@@ -7,16 +7,21 @@
 //
 
 import UIKit
+import SQLite
 
 class JobResultTableViewController: UITableViewController {
+    var categoryName = ""
     var skillList = [String] ()
-    var jobList = [String] ()
+    var jobName = ""
+    var location = ""
+    var salary : Int64 = 0
+    var matchedPercentage : Int64 = 0
+    var jobResults = [Job] ()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        for skill in skillList {
-            print(skill)
-        }
+        queryJobResults()
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -35,30 +40,108 @@ class JobResultTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return jobResults.count
     }
-    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as? JobResultTableCell
+        
+        // Configure the cell...
+        cell?.jobName.text = jobResults[indexPath.row].name
+        cell?.matchedPecentage.text = String(jobResults[indexPath.row].matched)
+        cell?.salary.text = String(jobResults[indexPath.row].salary)
+        cell?.location.text = String(jobResults[indexPath.row].location)
+        return cell!
+    }
+
     
     func queryJobResults() {
+        //Query of showing the job goes here
         
-        //Query of showing the job categories goes here
+        let colName = Expression<String>("name")
+        let colAddress = Expression<String>("address")
+        let colID = Expression<Int64>("id")
+        let colSkillID = Expression<Int64>("skillId")
+        let colJobID = Expression<Int64>("jobId")
+        let colCategory = Expression<String>("position")
+        let colSalary = Expression<Int64>("salary")
+        
+        
+        let jobTable = dbConfiguration.jobTable.select(distinct: colName).order(colName)
+        let jobSkillTable = dbConfiguration.jobSkillTable
+        let skillTable = dbConfiguration.skillTable
+        let companyTable = dbConfiguration.companyTable
+        
+        
+       
+        // get job ID list associated with skill list
+        var jobIDList = [Int64]()
+        for skillName in skillList {
+            let joinQuery = skillTable.join(jobSkillTable, on: colID == jobSkillTable[colSkillID]).where(colName == skillName)
+            let rows = try! dbConfiguration.db.prepare(joinQuery)
+            for row in rows {
+                jobIDList.append(row[jobSkillTable[colJobID]])
+            }
+        }
+        jobIDList = Array(Set(jobIDList))
+        //get Array of job name, matched % and company location
+        for jobID in jobIDList {
+            // get job name and company id
+            
+            var companyID : Int64 = 0
+            let jobQuery = jobTable.select(colName, colID, colSalary).where(colCategory == categoryName && colID == jobID)
+            let jobRows = try! dbConfiguration.db.prepare(jobQuery)
+            for row in jobRows {
+                jobName = row[colName]
+                companyID = row[colID]
+                salary = row[colSalary]
+            }
+            //get comapny locations
+            let companyQuery = companyTable.select(colAddress).where(colID == companyID)
+            let companyRows = try! dbConfiguration.db.prepare(companyQuery)
+            for row in companyRows {
+                location = convertAddressToLocation(row[colAddress])
+                
+            }
+
+            // get skill list related to job
+            var jobSkillList = [String]()
+            let joinQuery = skillTable.join(jobSkillTable, on: colID == jobSkillTable[colSkillID]).where(jobSkillTable[colJobID] == jobID)
+            let joinRows = try! dbConfiguration.db.prepare(joinQuery)
+            for row in joinRows {
+                jobSkillList.append(row[colName])
+            }
+            var matched = 0.0
+            var count  = 0.0
+            for skill in skillList {
+                if jobSkillList.contains(skill) {
+                    matched += 1
+                }
+            }
+            count = Double(jobSkillList.count)
+            matchedPercentage = Int64((matched/(count) * 100.0).rounded())
+            let job = Job(name: jobName, matched: matchedPercentage, salary: salary, location: location)
+            jobResults.append(job)
+            
+        }
         
     }
-
- 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    func convertAddressToLocation (_ address: String) -> String {
+        // code for converting address to location here
+        var loc = ""
+        let newStr = address.trimmingCharacters(in: .whitespaces)
+        let seperated = newStr.split(separator: ",")
+        if let final = seperated.last {
+            loc = String(final)
+        }
+        return loc
     }
-
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -10,6 +10,11 @@ import UIKit
 
 class JobResultTableCell: UITableViewCell {
 
+    @IBOutlet weak var jobName: UILabel!
+    @IBOutlet weak var matchedPecentage: UILabel!
+    @IBOutlet weak var salary: UILabel!
+    @IBOutlet weak var location: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

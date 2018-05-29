@@ -42,28 +42,25 @@ class JobCatTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return categories.count
     }
-    
-    func queryJobCategory() {
-        
-        //Query of showing the job categories goes here
-        let jobTable = dbConfiguration.jobTable;
-        let jobs = try! dbConfiguration.db.prepare(jobTable)
-        for job in jobs {
-            categories.append(job[Expression<String>("position")])
-        }
-        categories = Array(Set(categories))
-        categories = categories.sorted(by: { (a, b) -> Bool in
-            a <= b
-        })
-    }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: "catCell", for: indexPath) as? JobCatTableViewCell)
         cell?.CategoryName.text = categories[indexPath.row]
         // Configure the cell...
-
+        
         return cell!
     }
+    func queryJobCategory() {
+        
+        //Query of showing the job categories goes here
+        let categoryCol = Expression<String>("position")
+        let jobTable = dbConfiguration.jobTable.select(distinct: categoryCol).order(categoryCol)
+        let jobs = try! dbConfiguration.db.prepare(jobTable)
+        for job in jobs {
+            categories.append(job[Expression<String>("position")])
+        }
+    }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
