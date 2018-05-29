@@ -69,6 +69,7 @@ class JobResultTableViewController: UITableViewController {
         let colJobID = Expression<Int64>("jobId")
         let colCategory = Expression<String>("position")
         let colSalary = Expression<Int64>("salary")
+        let colCompanyID = Expression<Int64>("companyId")
         
         
         let jobTable = dbConfiguration.jobTable.select(distinct: colName).order(colName)
@@ -93,11 +94,11 @@ class JobResultTableViewController: UITableViewController {
             // get job name and company id
             
             var companyID : Int64 = 0
-            let jobQuery = jobTable.select(colName, colID, colSalary).where(colCategory == categoryName && colID == jobID)
+            let jobQuery = jobTable.select(colName, colCompanyID, colSalary).where(colCategory == categoryName && colID == jobID)
             let jobRows = try! dbConfiguration.db.prepare(jobQuery)
             for row in jobRows {
                 jobName = row[colName]
-                companyID = row[colID]
+                companyID = row[colCompanyID]
                 salary = row[colSalary]
             }
             //get comapny locations
@@ -126,7 +127,7 @@ class JobResultTableViewController: UITableViewController {
             matchedPercentage = Int64((matched/(count) * 100.0).rounded())
             let job = Job(name: jobName, matched: matchedPercentage, salary: salary, location: location)
             jobResults.append(job)
-            
+           
         }
         
     }
@@ -134,10 +135,9 @@ class JobResultTableViewController: UITableViewController {
     func convertAddressToLocation (_ address: String) -> String {
         // code for converting address to location here
         var loc = ""
-        let newStr = address.trimmingCharacters(in: .whitespaces)
-        let seperated = newStr.split(separator: ",")
+        let seperated = address.split(separator: ",")
         if let final = seperated.last {
-            loc = String(final)
+            loc = String(final).trimmingCharacters(in: .whitespaces)
         }
         return loc
     }
