@@ -14,7 +14,6 @@ class dbConfiguration
     static let jobTable = Table("job")
     static let companyTable = Table("company")
     static let skillTable = Table("skill")
-    static let comJobTable = Table("comJobTable")
     static let jobSkillTable = Table("jobSkillTable")
     static let id = Expression<Int64>("id")
     static let name = Expression<String>("name")
@@ -207,21 +206,18 @@ class dbConfiguration
         createJobSkillTable()
     }
     static func deleteTables (){
-        try! db.run(companyTable.drop())
-        try! db.run(jobTable.drop())
-        try! db.run(skillTable.drop())
-        try! db.run(jobSkillTable.drop())
+        let tables = [companyTable,jobTable,jobSkillTable,skillTable]
+        for table in tables
+        {
+            try! db.run(table.drop())
+        }
     }
     static func deletedata() {
-        let cdelete = companyTable.delete()
-        try! db.run(cdelete)
-        let jdelete = jobTable.delete()
-        try! db.run(jdelete)
-        let sdelete = skillTable.delete()
-        try! db.run(sdelete)
-        let jkdelete = jobSkillTable.delete()
-        try! db.run(jkdelete)
+        let tables = [companyTable,jobTable,jobSkillTable,skillTable]
+        for table in tables
+        {
+            try! db.run(table.delete())
+        }
     }
-    
 }
 

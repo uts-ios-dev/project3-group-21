@@ -17,12 +17,12 @@ class JobResultTableViewController: UITableViewController {
     var salary : Int64 = 0
     var matchedPercentage : Int64 = 0
     var jobResults = [Job] ()
+    var jobId: Int64 = 0
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         queryJobResults()
-        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -56,6 +56,19 @@ class JobResultTableViewController: UITableViewController {
         cell?.salary.text = String(jobResults[indexPath.row].salary)
         cell?.location.text = String(jobResults[indexPath.row].location)
         return cell!
+    }
+    
+    func sortBy(type:String)
+    {
+        switch type {
+        case "salary":
+            jobResults = jobResults.sorted(by: {$0.salary > $1.salary})
+        case "location":
+            jobResults = jobResults.sorted(by: {$0.location != $1.location})
+        default:
+            jobResults = jobResults.sorted(by: {$0.matched > $1.matched})
+        }
+        
     }
 
     
@@ -94,19 +107,19 @@ class JobResultTableViewController: UITableViewController {
             // get job name and company id
             
             var companyID : Int64 = 0
-            let jobQuery = jobTable.select(colName, colCompanyID, colSalary).where(colCategory == categoryName && colID == jobID)
+            let jobQuery = jobTable.select(colID,colName, colCompanyID, colSalary).where(colCategory == categoryName && colID == jobID)
             let jobRows = try! dbConfiguration.db.prepare(jobQuery)
             for row in jobRows {
                 jobName = row[colName]
                 companyID = row[colCompanyID]
                 salary = row[colSalary]
+                jobId = row[colID]
             }
             //get comapny locations
             let companyQuery = companyTable.select(colAddress).where(colID == companyID)
             let companyRows = try! dbConfiguration.db.prepare(companyQuery)
             for row in companyRows {
                 location = convertAddressToLocation(row[colAddress])
-                
             }
 
             // get skill list related to job
@@ -125,12 +138,14 @@ class JobResultTableViewController: UITableViewController {
             }
             count = Double(jobSkillList.count)
             matchedPercentage = Int64((matched/(count) * 100.0).rounded())
-            let job = Job(name: jobName, matched: matchedPercentage, salary: salary, location: location)
+            let job = Job(jobId: jobId, name: jobName, matched: matchedPercentage, salary: salary, location: location)
             jobResults.append(job)
+            sortBy(type: "salary")
            
         }
-        
     }
+    
+    
     
     func convertAddressToLocation (_ address: String) -> String {
         // code for converting address to location here
@@ -140,6 +155,16 @@ class JobResultTableViewController: UITableViewController {
             loc = String(final).trimmingCharacters(in: .whitespaces)
         }
         return loc
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is JobDetailsViewController
+        {
+            var selectedRowIndex = self.tableView.indexPathForSelectedRow
+            let vc = segue.destination as? JobDetailsViewController
+            vc?.job = jobResults[selectedRowIndex!.row]
+        }
     }
     
 
