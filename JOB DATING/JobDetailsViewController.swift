@@ -40,6 +40,7 @@ class JobDetailsViewController: UIViewController {
     @IBOutlet weak var salary: UITextView!
     @IBOutlet weak var experience: UITextView!
     @IBOutlet weak var skills: UITextView!
+    @IBOutlet weak var companyName: UITextView!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -64,6 +65,7 @@ class JobDetailsViewController: UIViewController {
             email.text = row[companyTable[Expression<String>("email")]]
             salary.text = String(row[jobTable[Expression<Int64>("salary")]]) + "/y"
             experience.text = row[jobTable[Expression<String>("experience")]]
+            companyName.text = row[companyTable[colName]]
         }
     }
     
