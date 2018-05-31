@@ -12,9 +12,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dbConfiguration.buildDB()
-//      dbConfiguration.createTables()
-//      dbConfiguration.addData()
+        dbConfiguration.createTables()
+        dbConfiguration.addData()
         dbConfiguration.testQuery()
 //        dbConfiguration.deletedata();
    //     dbConfiguration.deleteTables();

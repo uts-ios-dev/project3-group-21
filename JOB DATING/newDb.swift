@@ -10,7 +10,7 @@ import Foundation
 import SQLite
 class dbConfiguration
 {
-    static var db: Connection!
+    static var db = try! Connection()
     static let jobTable = Table("job")
     static let companyTable = Table("company")
     static let skillTable = Table("skill")
@@ -18,17 +18,7 @@ class dbConfiguration
     static let id = Expression<Int64>("id")
     static let name = Expression<String>("name")
     
-    static func buildDB()
-    {
-        do {
-            let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            let fileUrl = documentDirectory.appendingPathComponent("job").appendingPathExtension("sqlite3")
-            self.db = try Connection(fileUrl.path)
-        } catch {
-            print (error)
-        }
-    }
-    
+
     static func createCompanyTable()
     {
         let tableCreate = companyTable.create { (t) in
@@ -204,6 +194,7 @@ class dbConfiguration
         createJobTable()
         createSkillTable()
         createJobSkillTable()
+        print("Create Tables ")
     }
     static func deleteTables (){
         let tables = [companyTable,jobTable,jobSkillTable,skillTable]
