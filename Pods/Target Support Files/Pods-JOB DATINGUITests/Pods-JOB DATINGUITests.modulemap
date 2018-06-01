@@ -1,0 +1,6 @@
+framework module Pods_JOB_DATINGUITests {
+  umbrella header "Pods-JOB DATINGUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
