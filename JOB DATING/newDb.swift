@@ -13,11 +13,27 @@ class dbConfiguration
     static var db = try! Connection()
     static let jobTable = Table("job")
     static let companyTable = Table("company")
+    static let userTable = Table("user")
     static let skillTable = Table("skill")
     static let jobSkillTable = Table("jobSkillTable")
     static let id = Expression<Int64>("id")
     static let name = Expression<String>("name")
     
+    static func createUserTable()
+    {
+        let tableCreate = userTable.create { (t) in
+            t.column(id, primaryKey: true)
+            t.column(name)
+            t.column(Expression<String>("address"))
+            t.column(Expression<Int64>("phone"))
+            t.column(Expression<String>("email"), check: Expression<String>("email").like("%@%"))
+        }
+        do {
+            try db.run(tableCreate)
+        }catch{
+            print(error)
+        }
+    }
 
     static func createCompanyTable()
     {
@@ -82,6 +98,11 @@ class dbConfiguration
     static func addData()
     {
         do {
+            try db.run(userTable.insert(name <- "Danny Tran",
+                                           Expression<String>("address") <- "47 Marion street, Bankstown, Sydney",
+                                           Expression<String>("email") <- "dannytranit@gmail.com",
+                                           Expression<Int64>("phone") <- 61420419499
+            ))
             try db.run(companyTable.insert(name <- "test_company_1",
                                            Expression<String>("address") <- "100 Wattle street, Broadway, Sydney",
                                            Expression<String>("email") <- "test@1.com",
@@ -162,6 +183,11 @@ class dbConfiguration
    
     static func testQuery()
     {
+        let users = try! db.prepare(userTable)
+        for user in users {
+            
+            print("userId: \(user[id]), userName: \(user[name]), userPhone: \(user[Expression<Int64>("phone")]), userEmail: \(user[Expression<String>("email")])")
+        }
         let jobs = try! db.prepare(jobTable)
         for job in jobs {
             
@@ -176,20 +202,11 @@ class dbConfiguration
         for company in companies {
             print("companyId: \(company[id]), companyName: \(company[name]), address: \(company[Expression<String>("address")])")
         }
-        let joins = try! db.prepare(jobSkillTable)
-        for join in joins {
-            
-            print("JobId: \(join[Expression<Int64>("jobId")]), SkillId: \(join[Expression<Int64>("skillId")])")
-        }
-        
-        let advancedQuery = jobTable.join(companyTable, on: Expression<Int64>("companyId") == companyTable[id])
-            .where(Expression<String>("position") == "software_developer")
-        for row in try! db.prepare(advancedQuery){
-            print("JobId:\(row[jobTable[id]]), JobName: \(row[jobTable[name]]), companyId: \(row[companyTable[id]]), companyName: \(row[companyTable[name]])")
-        }
+
     }
     static func createTables()
     {
+        createUserTable()
         createCompanyTable()
         createJobTable()
         createSkillTable()
@@ -209,6 +226,21 @@ class dbConfiguration
         {
             try! db.run(table.delete())
         }
+    }
+    static func getUserList () -> [User]{
+        var userList = [User]()
+        let rows = try! db.prepare(userTable)
+        for row in rows {
+            let name = row[self.name]
+            let address = row[Expression<String>("address")]
+            let phone =  row[Expression<Int64>("phone")]
+            let email =  row[Expression<String>("email")]
+            let user = User(name: name, address: address, email: email, phone: phone)
+            userList.append(user)
+
+        }
+        return userList
+        
     }
 }
 
