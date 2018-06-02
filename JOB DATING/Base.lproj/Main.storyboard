@@ -25,25 +25,14 @@
                                         <rect key="frame" x="43" y="102" width="289" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-<<<<<<< Updated upstream
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bR6-e9-d5P">
-                                        <rect key="frame" x="97" y="457" width="180" height="50"/>
-                                        <color key="backgroundColor" red="0.25324575474932226" green="0.32551082743289322" blue="0.46433775906735753" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="kMr-Vn-b9L"/>
-                                            <constraint firstAttribute="height" constant="50" id="n1b-0u-7j1"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Search Matching Job">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-=======
+
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v16-Mj-0JS">
                                         <rect key="frame" x="62" y="347" width="250" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Login with Phone">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
->>>>>>> Stashed changes
+
                                         </state>
                                         <connections>
                                             <action selector="loginWithPhone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZJA-uz-Ade"/>
@@ -78,11 +67,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="-828" y="121"/>
-=======
+
             <point key="canvasLocation" x="-1991" y="-891"/>
->>>>>>> Stashed changes
+
         </scene>
         <!--Choose Job Category-->
         <scene sceneID="Sn3-Xk-eXt">
@@ -148,12 +135,9 @@
                         <barButtonItem key="backBarButtonItem" title="Job Category" id="94l-aw-Kg1"/>
                     </navigationItem>
                     <connections>
-<<<<<<< Updated upstream
-                        <outlet property="searchbar" destination="gl6-A6-pvf" id="iYx-ef-41X"/>
-                        <segue destination="fr7-36-sgF" kind="show" identifier="showDetail" id="fCW-7o-JFf"/>
-=======
+
                         <segue destination="fr7-36-sgF" kind="show" identifier="" id="fCW-7o-JFf"/>
->>>>>>> Stashed changes
+
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5G-pk-3ve" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -310,11 +294,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ik-fX-kNE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="1802" y="121"/>
-=======
+
             <point key="canvasLocation" x="416.80000000000001" y="-100.29985007496252"/>
->>>>>>> Stashed changes
+
         </scene>
         <!--Job Details-->
         <scene sceneID="84N-pv-J9n">
@@ -589,9 +571,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIq-My-wW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="6kZ-vA-duM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="2903.1999999999998" y="96.7016491754123"/>
-=======
+
             <point key="canvasLocation" x="1319.2" y="-73.313343328335833"/>
         </scene>
         <!--Home View Controller-->
@@ -756,21 +736,17 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HzI-MJ-uqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1946.4000000000001" y="-100.29985007496252"/>
->>>>>>> Stashed changes
+
         </scene>
     </scenes>
     <resources>
         <image name="logo" width="500" height="500"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< Updated upstream
-        <segue reference="1mu-hQ-zuc"/>
-        <segue reference="jlS-k7-DQm"/>
-        <segue reference="fCW-7o-JFf"/>
-=======
+
         <segue reference="JW1-U5-bvK"/>
         <segue reference="Ygp-Va-otp"/>
         <segue reference="8pF-Mr-P4g"/>
->>>>>>> Stashed changes
+
     </inferredMetricsTieBreakers>
 </document>
