@@ -9,15 +9,25 @@
 import UIKit
 import SQLite
 
-class JobCatTableViewController: UITableViewController {
+class JobCatTableViewController: UITableViewController, UISearchBarDelegate {
 
     var categories = [String]()
+    var jobNames = [String]()
+    
+    var searchedJobs = [String]()
+    var searchCategories = [String()]
+    var shouldShowSearchResults = false
+    //let searchbar = UISearchBar()
+    
+    @IBOutlet weak var searchbar: UISearchBar!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        createSearchbar()
+        queryJobName()
         queryJobCategory()
-        
+        //searchQuery()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -25,12 +35,42 @@ class JobCatTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    func createSearchbar() {
+
+        searchbar.delegate = self as UISearchBarDelegate
+        //self.navigationItem.titleView = searchbar
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchCategories.removeAll()
+        searchedJobs = jobNames.filter({ (name: String) -> Bool in
+            
+            return  name.lowercased().contains(searchText.lowercased())
+        })
+        searchQuery()
+        if searchText == "" {
+            shouldShowSearchResults = false
+        }else
+        {
+            shouldShowSearchResults = true
+        }
+        
+        
+        tableView.reloadData()
+        //searchCategories.removeAll()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        shouldShowSearchResults = false
+        tableView.reloadData()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,14 +80,29 @@ class JobCatTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return categories.count
+        if shouldShowSearchResults
+        {
+            return searchCategories.count
+        }
+        else{
+            return categories.count
+        }
+        
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: "catCell", for: indexPath) as? JobCatTableViewCell)
+        if shouldShowSearchResults{
+            cell?.CategoryName.text = searchCategories[indexPath.row]
+            return cell!
+        }
+        else
+        {
         cell?.CategoryName.text = categories[indexPath.row]
+        
         // Configure the cell...
         
         return cell!
+        }
     }
     func queryJobCategory() {
         
@@ -60,11 +115,30 @@ class JobCatTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func unwindToCat(_ sender: UIStoryboardSegue){
+    func queryJobName() {
         
+        //Query of showing the job categories goes here
+        let nameCol = Expression<String>("name")
+        let nameTable = dbConfiguration.jobTable.select(distinct: nameCol).order(nameCol)
+        let names = try! dbConfiguration.db.prepare(nameTable)
+        for name in names {
+            jobNames.append(name[Expression<String>("name")])
+        }
     }
     
-    
+    func searchQuery() {
+
+        //Query of showing the skills goes here
+        let jobTable = dbConfiguration.jobTable
+        let categoryCol = Expression<String>("position")
+        let query = jobTable.select(distinct: categoryCol).where(searchedJobs.contains(Expression<String>("name")))
+        let jobs = try! dbConfiguration.db.prepare(query)
+        for job in jobs {
+            searchCategories.append(job[Expression<String>("position")])
+        }
+
+
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
@@ -72,9 +146,22 @@ class JobCatTableViewController: UITableViewController {
         {
             var selectedRowIndex = self.tableView.indexPathForSelectedRow
             let vc = segue.destination as? SkillsTableViewController
+            if shouldShowSearchResults == true
+            {
+            vc?.catName = searchCategories[selectedRowIndex!.row]
+            }else
+            {
             vc?.catName = categories[selectedRowIndex!.row]
+            }
         }
     }
+    
+    private func searchBarSearchButtonClicked(searchBar: UISearchBar){
+        shouldShowSearchResults = true
+        searchBar.endEditing(true)
+        self.tableView.reloadData()
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -120,5 +207,5 @@ class JobCatTableViewController: UITableViewController {
     }
     */
     
-   
 }
+

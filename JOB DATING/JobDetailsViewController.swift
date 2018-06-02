@@ -22,6 +22,15 @@ class JobDetailsViewController: UIViewController {
     let skillTable = dbConfiguration.skillTable
     var skillList:[String] = []
 
+    @IBAction func TappedStartOverButton(_ sender: Any) {
+    presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func AplpyTapped(_ sender: Any) {
+        UIApplication.shared.open(URL(string : "https://goo.gl/forms/BF0GwsVI1nfo6CCz1")!, options: [:], completionHandler: { (status) in
+            
+        })
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         queryInfo()
@@ -41,6 +50,8 @@ class JobDetailsViewController: UIViewController {
     @IBOutlet weak var experience: UITextView!
     @IBOutlet weak var skills: UITextView!
     @IBOutlet weak var companyName: UITextView!
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
