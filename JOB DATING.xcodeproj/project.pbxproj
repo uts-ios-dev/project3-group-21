@@ -14,7 +14,14 @@
 		5534352E20B272FE001C7CE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5534352C20B272FE001C7CE6 /* LaunchScreen.storyboard */; };
 		5534353920B272FE001C7CE6 /* JOB_DATINGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5534353820B272FE001C7CE6 /* JOB_DATINGTests.swift */; };
 		5534354420B272FE001C7CE6 /* JOB_DATINGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5534354320B272FE001C7CE6 /* JOB_DATINGUITests.swift */; };
-		5534355220B28E6E001C7CE6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5534355120B28E6E001C7CE6 /* TableViewController.swift */; };
+		FB8518A120B783400005A88A /* JobCatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8518A020B783400005A88A /* JobCatTableViewController.swift */; };
+		FB8518A320B783700005A88A /* JobCatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8518A220B783700005A88A /* JobCatTableViewCell.swift */; };
+		FB8518A520B7B65D0005A88A /* SkillsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8518A420B7B65D0005A88A /* SkillsTableViewController.swift */; };
+		FB8518A920B7B8460005A88A /* SkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8518A820B7B8460005A88A /* SkillsTableViewCell.swift */; };
+		FB8518AB20B7C2750005A88A /* JobResultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8518AA20B7C2750005A88A /* JobResultTableCell.swift */; };
+		FB8518AD20B7C2980005A88A /* JobResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8518AC20B7C2980005A88A /* JobResultTableViewController.swift */; };
+		FB8518AF20B7DDFC0005A88A /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8518AE20B7DDFC0005A88A /* MainNavigationController.swift */; };
+		FB8518B120B7E0340005A88A /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8518B020B7E0340005A88A /* JobDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +55,14 @@
 		5534353F20B272FE001C7CE6 /* JOB DATINGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JOB DATINGUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5534354320B272FE001C7CE6 /* JOB_DATINGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JOB_DATINGUITests.swift; sourceTree = "<group>"; };
 		5534354520B272FE001C7CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5534355120B28E6E001C7CE6 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		FB8518A020B783400005A88A /* JobCatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCatTableViewController.swift; sourceTree = "<group>"; };
+		FB8518A220B783700005A88A /* JobCatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCatTableViewCell.swift; sourceTree = "<group>"; };
+		FB8518A420B7B65D0005A88A /* SkillsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewController.swift; sourceTree = "<group>"; };
+		FB8518A820B7B8460005A88A /* SkillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewCell.swift; sourceTree = "<group>"; };
+		FB8518AA20B7C2750005A88A /* JobResultTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobResultTableCell.swift; sourceTree = "<group>"; };
+		FB8518AC20B7C2980005A88A /* JobResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobResultTableViewController.swift; sourceTree = "<group>"; };
+		FB8518AE20B7DDFC0005A88A /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		FB8518B020B7E0340005A88A /* JobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +115,15 @@
 			children = (
 				5534352320B272FE001C7CE6 /* AppDelegate.swift */,
 				5534352520B272FE001C7CE6 /* ViewController.swift */,
-				5534355120B28E6E001C7CE6 /* TableViewController.swift */,
 				5534352720B272FE001C7CE6 /* Main.storyboard */,
+				FB8518B020B7E0340005A88A /* JobDetailsViewController.swift */,
+				FB8518AE20B7DDFC0005A88A /* MainNavigationController.swift */,
+				FB8518A420B7B65D0005A88A /* SkillsTableViewController.swift */,
+				FB8518A020B783400005A88A /* JobCatTableViewController.swift */,
+				FB8518A220B783700005A88A /* JobCatTableViewCell.swift */,
+				FB8518A820B7B8460005A88A /* SkillsTableViewCell.swift */,
+				FB8518AA20B7C2750005A88A /* JobResultTableCell.swift */,
+				FB8518AC20B7C2980005A88A /* JobResultTableViewController.swift */,
 				5534352A20B272FE001C7CE6 /* Assets.xcassets */,
 				5534352C20B272FE001C7CE6 /* LaunchScreen.storyboard */,
 				5534352F20B272FE001C7CE6 /* Info.plist */,
@@ -262,9 +283,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB8518AF20B7DDFC0005A88A /* MainNavigationController.swift in Sources */,
 				5534352620B272FE001C7CE6 /* ViewController.swift in Sources */,
-				5534355220B28E6E001C7CE6 /* TableViewController.swift in Sources */,
 				5534352420B272FE001C7CE6 /* AppDelegate.swift in Sources */,
+				FB8518AB20B7C2750005A88A /* JobResultTableCell.swift in Sources */,
+				FB8518A320B783700005A88A /* JobCatTableViewCell.swift in Sources */,
+				FB8518A520B7B65D0005A88A /* SkillsTableViewController.swift in Sources */,
+				FB8518A120B783400005A88A /* JobCatTableViewController.swift in Sources */,
+				FB8518AD20B7C2980005A88A /* JobResultTableViewController.swift in Sources */,
+				FB8518A920B7B8460005A88A /* SkillsTableViewCell.swift in Sources */,
+				FB8518B120B7E0340005A88A /* JobDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
