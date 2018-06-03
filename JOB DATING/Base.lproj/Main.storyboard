@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ylb-ZK-9mX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -219,7 +219,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9W-de-NUl">
-                                            <rect key="frame" x="16" y="0.0" width="91" height="44"/>
+                                            <rect key="frame" x="16" y="0.0" width="159" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -230,7 +230,7 @@
                                 <color key="backgroundColor" red="0.32658845848092088" green="0.56993270374586336" blue="0.88566628886010368" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <outlet property="optionName" destination="d9W-de-NUl" id="CZb-FH-iNf"/>
-                                    <segue destination="4dh-FC-ATs" kind="show" id="ebj-T1-3yL"/>
+                                    <segue destination="4dh-FC-ATs" kind="show" id="jw9-5Z-zbd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -252,7 +252,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="xfw-rr-ilS">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="xfw-rr-ilS">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -323,8 +323,9 @@
                         <barButtonItem key="backBarButtonItem" title="Search Results" id="xBy-Qh-gtV"/>
                         <barButtonItem key="rightBarButtonItem" id="R4M-WM-CVM">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kAg-jk-DKS">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <rect key="frame" x="276" y="5.5" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Sorting"/>
                                 <connections>
                                     <segue destination="LNu-2n-lKV" kind="show" id="U5e-VT-ocG"/>
@@ -798,16 +799,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGr-n1-gRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ANT-kG-gmG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1157.5999999999999" y="-100.29985007496252"/>
+            <point key="canvasLocation" x="1330" y="-82"/>
         </scene>
     </scenes>
     <resources>
         <image name="logo" width="500" height="500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="b5l-OT-XSH"/>
         <segue reference="fbb-qN-Wn2"/>
-        <segue reference="ebj-T1-3yL"/>
+        <segue reference="jw9-5Z-zbd"/>
         <segue reference="8pF-Mr-P4g"/>
     </inferredMetricsTieBreakers>
 </document>

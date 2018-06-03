@@ -12,7 +12,7 @@ class SortingTableViewController: UITableViewController {
     var skillList = [String]()
     var category = ""
     
-    let sortingOption = ["%(default)","salary","location"]
+    let sortingOption = ["maching percent","salary","location"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

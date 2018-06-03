@@ -23,7 +23,6 @@ class JobResultTableViewController: UITableViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("did")
         queryJobResults()
 
         // Uncomment the following line to preserve selection between presentations
