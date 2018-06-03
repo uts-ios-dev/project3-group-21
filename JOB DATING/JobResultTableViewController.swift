@@ -165,7 +165,18 @@ class JobResultTableViewController: UITableViewController {
             let vc = segue.destination as? JobDetailsViewController
             vc?.job = jobResults[selectedRowIndex!.row]
         }
+        if segue.destination is SortingTableViewController
+        {
+            let vc = segue.destination as? SortingTableViewController
+            vc?.skillList = skillList
+            vc?.category = categoryName
+        }
     }
+    
+    @IBAction func unwindToJobResult(_ sender: UIStoryboardSegue){
+        
+    }
+    
     
 
     /*
