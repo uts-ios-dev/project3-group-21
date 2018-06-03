@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -202,17 +202,30 @@
             </objects>
             <point key="canvasLocation" x="-316" y="-100.29985007496252"/>
         </scene>
-        <!--Sorting Table View Controller-->
+        <!--Sort By-->
         <scene sceneID="n3V-Wt-qCE">
             <objects>
-                <tableViewController id="LNu-2n-lKV" customClass="SortingTableViewController" customModule="JOB_DATING" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Sort By" id="LNu-2n-lKV" customClass="SortingTableViewController" customModule="JOB_DATING" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gmP-FL-FvV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="rcD-bP-pMp">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose one" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waG-ju-1Fo">
+                                    <rect key="frame" x="17" y="12" width="94" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                    <color key="textColor" red="0.2470588235" green="0.3294117647" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="option" id="lhU-Ya-txh" customClass="SoringTableViewCell" customModule="JOB_DATING" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lhU-Ya-txh" id="MjX-1R-3Dd">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -227,10 +240,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.32658845848092088" green="0.56993270374586336" blue="0.88566628886010368" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.25882352939999997" green="0.62745098040000002" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="optionName" destination="d9W-de-NUl" id="CZb-FH-iNf"/>
-                                    <segue destination="4dh-FC-ATs" kind="show" id="jw9-5Z-zbd"/>
+                                    <segue destination="4dh-FC-ATs" kind="show" id="DaD-du-1n3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -242,7 +255,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zjz-tu-Pg5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1157.5999999999999" y="-794.75262368815595"/>
+            <point key="canvasLocation" x="1202" y="-100"/>
         </scene>
         <!--Search Result-->
         <scene sceneID="vbC-2q-23e">
@@ -326,7 +339,7 @@
                                 <rect key="frame" x="276" y="5.5" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Sorting"/>
+                                <state key="normal" title="Sort By ↓"/>
                                 <connections>
                                     <segue destination="LNu-2n-lKV" kind="show" id="U5e-VT-ocG"/>
                                 </connections>
@@ -545,7 +558,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ANT-kG-gmG" kind="unwind" unwindAction="unwindToLogin:" id="fjP-tf-b09"/>
+                                    <action selector="StartOverButtonTap:" destination="4je-hG-fIF" eventType="touchUpInside" id="MJw-3H-aPX"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GDW-B9-bpf">
@@ -796,9 +809,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGr-n1-gRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="ANT-kG-gmG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1330" y="-82"/>
+            <point key="canvasLocation" x="417" y="722"/>
         </scene>
     </scenes>
     <resources>
@@ -806,7 +818,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fbb-qN-Wn2"/>
-        <segue reference="jw9-5Z-zbd"/>
+        <segue reference="DaD-du-1n3"/>
         <segue reference="8pF-Mr-P4g"/>
     </inferredMetricsTieBreakers>
 </document>

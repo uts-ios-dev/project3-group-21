@@ -198,7 +198,7 @@ class dbConfiguration
             try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 5,
                                             Expression<Int64>("skillId") <- 14))
             try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 5,
-                                            Expression<Int64>("skillId") <- 11))
+                                            Expression<Int64>("skillId") <- 13))
             try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 5,
                                             Expression<Int64>("skillId") <- 9))
             try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 5,
@@ -208,7 +208,7 @@ class dbConfiguration
             try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 6,
                                             Expression<Int64>("skillId") <- 12))
             try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 6,
-                                            Expression<Int64>("skillId") <- 6))
+                                            Expression<Int64>("skillId") <- 9))
             try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 6,
                                             Expression<Int64>("skillId") <- 14))
             try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 6,
