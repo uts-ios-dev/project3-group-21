@@ -545,8 +545,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="StartOverButtonTap:" destination="4je-hG-fIF" eventType="touchUpInside" id="3B8-Md-sHe"/>
-                                    <segue destination="ANT-kG-gmG" kind="unwind" unwindAction="unwindToCat:" id="eXi-Rp-JD5"/>
+                                    <segue destination="ANT-kG-gmG" kind="unwind" unwindAction="unwindToLogin:" id="fjP-tf-b09"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GDW-B9-bpf">

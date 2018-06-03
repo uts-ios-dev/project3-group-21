@@ -74,5 +74,9 @@ class LoginViewController: UIViewController, AKFViewControllerDelegate {
         self.prepareLoginViewController(viewController)
         self.present(viewController as! UIViewController, animated: true, completion: nil)
     }
+    
+    @IBAction func unwindToLogin(_ sender: UIStoryboardSegue){
+        
+    }
 
 }
