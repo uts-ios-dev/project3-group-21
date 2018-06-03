@@ -99,9 +99,14 @@ class dbConfiguration
     {
         do {
             try db.run(userTable.insert(name <- "Md Alam",
-                                           Expression<String>("address") <- "47 Marion street, Bankstown, Sydney",
+                                           Expression<String>("address") <- "50 Marion street, Bankstown, Sydney",
                                            Expression<String>("email") <- "gollaboss@gmail.com",
                                            Expression<Int64>("phone") <- 61420447970
+            ))
+            try db.run(userTable.insert(name <- "Danny Tran",
+                                        Expression<String>("address") <- "47 Marion street, Bankstown, Sydney",
+                                        Expression<String>("email") <- "dannytranit@gmail.com",
+                                        Expression<Int64>("phone") <- 61420419499
             ))
             try db.run(companyTable.insert(name <- "test_company_1",
                                            Expression<String>("address") <- "100 Wattle street, Broadway, Sydney",

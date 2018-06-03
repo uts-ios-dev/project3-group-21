@@ -42,16 +42,16 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var address: UITextField!
     @IBOutlet weak var phoneOrEmail: UILabel!
     @IBOutlet weak var phoneorEmailText: UITextField!
-    @IBOutlet weak var alertMessage: UILabel!
+   
     
-    @IBOutlet weak var logout: UIButton!
+
     var accountKit: AKFAccountKit!
     var isUserExisted = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // showLogoutButton()
+     
         //Init Account Kit
         let userList = dbConfiguration.getUserList()
         
@@ -96,7 +96,7 @@ class HomeViewController: UIViewController {
         name.isHidden = true
         address.isHidden = true
         phoneorEmailText.isHidden = true
-        logout.isHidden = false
+        
     }
     
     @IBAction func showNextView(_ sender: UIButton) {
@@ -114,14 +114,6 @@ class HomeViewController: UIViewController {
         present(mainNavigationController,  animated: true, completion: nil)
     }
     
-//    func showLogoutButton()
-//    {
-//        if isUserExisted {
-//            logout.isHidden = false
-//        }else{
-//            logout.isHidden = true
-//        }
-//    }
     
     func showAlert() {
         let warning = UIAlertController(title: "Error", message: "You need to fill in all information", preferredStyle: .alert)
@@ -150,7 +142,11 @@ class HomeViewController: UIViewController {
         try! dbConfiguration.db.run(userTable.insert(Expression<String>("name") <- userName, Expression<String>("address") <- userAddress, Expression<Int64>("phone") <- userPhone, Expression<String>("email") <- userEmail))
         print("userSaved\n")
     
-        
+    }
+    
+    @IBAction func logOut(_ sender: UIButton) {
+        accountKit.logOut()
+        dismiss(animated: true, completion: nil)
     }
     
 }

@@ -15,7 +15,7 @@
 		5534354420B272FE001C7CE6 /* JOB_DATINGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5534354320B272FE001C7CE6 /* JOB_DATINGUITests.swift */; };
 		615F44B020C3C57200C6A4FC /* SoringTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615F44AE20C3C57100C6A4FC /* SoringTableViewCell.swift */; };
 		615F44B120C3C57200C6A4FC /* SortingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615F44AF20C3C57200C6A4FC /* SortingTableViewController.swift */; };
-		615F44B320C3C9FB00C6A4FC /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615F44B220C3C9FB00C6A4FC /* MainNavigationController.swift */; };
+		940984A520C43D0F00B89AFC /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940984A420C43D0F00B89AFC /* MainNavigationController.swift */; };
 		942AB34720B92348002783E9 /* newDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942AB34620B92348002783E9 /* newDb.swift */; };
 		942B63D620C244F000C550AF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942B63D520C244F000C550AF /* LoginViewController.swift */; };
 		942B63D820C244F900C550AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942B63D720C244F900C550AF /* HomeViewController.swift */; };
@@ -68,10 +68,10 @@
 		5534354520B272FE001C7CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		615F44AE20C3C57100C6A4FC /* SoringTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoringTableViewCell.swift; sourceTree = "<group>"; };
 		615F44AF20C3C57200C6A4FC /* SortingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingTableViewController.swift; sourceTree = "<group>"; };
-		615F44B220C3C9FB00C6A4FC /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainNavigationController.swift; path = "../../../project3-group-21/JOB DATING/MainNavigationController.swift"; sourceTree = "<group>"; };
 		7521B50A7C592A0B419CDBFE /* Pods-JOB DATINGTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JOB DATINGTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JOB DATINGTests/Pods-JOB DATINGTests.release.xcconfig"; sourceTree = "<group>"; };
 		79591DEFB2CF60F095A09749 /* Pods_JOB_DATING.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JOB_DATING.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		817CB425D8E31DC50A559147 /* Pods-JOB DATINGUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JOB DATINGUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JOB DATINGUITests/Pods-JOB DATINGUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		940984A420C43D0F00B89AFC /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		942AB34620B92348002783E9 /* newDb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newDb.swift; sourceTree = "<group>"; };
 		942B63D520C244F000C550AF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		942B63D720C244F900C550AF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 		5534352220B272FE001C7CE6 /* JOB DATING */ = {
 			isa = PBXGroup;
 			children = (
-				615F44B220C3C9FB00C6A4FC /* MainNavigationController.swift */,
+				940984A420C43D0F00B89AFC /* MainNavigationController.swift */,
 				5534352720B272FE001C7CE6 /* Main.storyboard */,
 				942AB34620B92348002783E9 /* newDb.swift */,
 				5534352320B272FE001C7CE6 /* AppDelegate.swift */,
@@ -430,12 +430,12 @@
 			files = (
 				942AB34720B92348002783E9 /* newDb.swift in Sources */,
 				615F44B020C3C57200C6A4FC /* SoringTableViewCell.swift in Sources */,
-				615F44B320C3C9FB00C6A4FC /* MainNavigationController.swift in Sources */,
 				5534352420B272FE001C7CE6 /* AppDelegate.swift in Sources */,
 				FB8518AB20B7C2750005A88A /* JobResultTableCell.swift in Sources */,
 				942B63D820C244F900C550AF /* HomeViewController.swift in Sources */,
 				94C8B30320C27B21005CCA69 /* User.swift in Sources */,
 				FB8518A320B783700005A88A /* JobCatTableViewCell.swift in Sources */,
+				940984A520C43D0F00B89AFC /* MainNavigationController.swift in Sources */,
 				615F44B120C3C57200C6A4FC /* SortingTableViewController.swift in Sources */,
 				FB8518A520B7B65D0005A88A /* SkillsTableViewController.swift in Sources */,
 				94785B5E20BD2314000F24CD /* Job.swift in Sources */,
