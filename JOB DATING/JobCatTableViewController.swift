@@ -25,6 +25,9 @@ class JobCatTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dbConfiguration.createTables()
+        dbConfiguration.addData()
+        dbConfiguration.testQuery()
         createSearchbar()
         queryJobName()
         queryJobCategory()
@@ -161,6 +164,10 @@ class JobCatTableViewController: UITableViewController, UISearchBarDelegate {
         shouldShowSearchResults = true
         searchBar.endEditing(true)
         self.tableView.reloadData()
+    }
+    
+    @IBAction func unwindToCat(_ sender: UIStoryboardSegue){
+        
     }
     
     /*

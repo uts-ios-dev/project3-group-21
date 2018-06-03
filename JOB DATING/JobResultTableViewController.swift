@@ -18,10 +18,12 @@ class JobResultTableViewController: UITableViewController {
     var matchedPercentage : Int64 = 0
     var jobResults = [Job] ()
     var jobId: Int64 = 0
+    var option = "default"
     
-
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("did")
         queryJobResults()
 
         // Uncomment the following line to preserve selection between presentations
@@ -140,7 +142,7 @@ class JobResultTableViewController: UITableViewController {
             matchedPercentage = Int64((matched/(count) * 100.0).rounded())
             let job = Job(jobId: jobId, name: jobName, matched: matchedPercentage, salary: salary, location: location)
             jobResults.append(job)
-            sortBy(type: "salary")
+            sortBy(type: option)
            
         }
     }
@@ -176,6 +178,12 @@ class JobResultTableViewController: UITableViewController {
     @IBAction func unwindToJobResult(_ sender: UIStoryboardSegue){
         
     }
+    
+
+//    override func viewWillAppear(_ animated: Bool) {
+//        print(option)
+//        tableView.reloadData()
+//    }
     
     
 
