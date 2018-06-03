@@ -98,10 +98,10 @@ class dbConfiguration
     static func addData()
     {
         do {
-            try db.run(userTable.insert(name <- "Danny Tran",
+            try db.run(userTable.insert(name <- "Md Alam",
                                            Expression<String>("address") <- "47 Marion street, Bankstown, Sydney",
-                                           Expression<String>("email") <- "dannytranit@gmail.com",
-                                           Expression<Int64>("phone") <- 61420419499
+                                           Expression<String>("email") <- "gollaboss@gmail.com",
+                                           Expression<Int64>("phone") <- 61420447970
             ))
             try db.run(companyTable.insert(name <- "test_company_1",
                                            Expression<String>("address") <- "100 Wattle street, Broadway, Sydney",
@@ -118,6 +118,11 @@ class dbConfiguration
                                            Expression<String>("address") <- "1134 / 2 Middle Lane, Randton, New Castle",
                                            Expression<String>("email") <- "test@3.com",
                                            Expression<Int64>("phone") <- 123678
+            ))
+            try db.run(companyTable.insert(name <- "Logistic Organization",
+                                           Expression<String>("address") <- "1055c / 10 Lee Street, Perth",
+                                           Expression<String>("email") <- "test@4.com",
+                                           Expression<Int64>("phone") <- 128678
             ))
             
             try db.run(jobTable.insert(name <- "IOS Developer",
@@ -140,6 +145,16 @@ class dbConfiguration
                                        Expression<String>("experience") <- "5+years",
                                        Expression<String>("position") <- "IT Engineer",
                                        Expression<Int64>("companyId") <- 3))
+            try db.run(jobTable.insert(name <- "Accounts Officer",
+                                       Expression<Int64>("salary") <- 787500,
+                                       Expression<String>("experience") <- "2+years",
+                                       Expression<String>("position") <- "Accounts Officer",
+                                       Expression<Int64>("companyId") <- 4))
+            try db.run(jobTable.insert(name <- "Accounts Payable",
+                                       Expression<Int64>("salary") <- 788000,
+                                       Expression<String>("experience") <- "1+years",
+                                       Expression<String>("position") <- "Accounts Officer",
+                                       Expression<Int64>("companyId") <- 4))
             
             try db.run(skillTable.insert(name <- "Swift"))
             try db.run(skillTable.insert(name <- "C++"))
@@ -149,7 +164,14 @@ class dbConfiguration
             try db.run(skillTable.insert(name <- ".Net"))
             try db.run(skillTable.insert(name <- "Windows Server"))
             try db.run(skillTable.insert(name <- "VNWare"))
-            try db.run(skillTable.insert(name <- "Networking"))
+            try db.run(skillTable.insert(name <- "Account Analysis"))
+            try db.run(skillTable.insert(name <- "Accounting Principles"))
+            try db.run(skillTable.insert(name <- "Crystal Reports"))
+            try db.run(skillTable.insert(name <- "Financial Software"))
+            try db.run(skillTable.insert(name <- "Oracle"))
+            try db.run(skillTable.insert(name <- "Payroll"))
+            try db.run(skillTable.insert(name <- "Invoices"))
+            try db.run(skillTable.insert(name <- "Debt Management"))
             
             try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 1,
                                             Expression<Int64>("skillId") <- 1))
@@ -173,8 +195,24 @@ class dbConfiguration
                                             Expression<Int64>("skillId") <- 7))
             try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 4,
                                             Expression<Int64>("skillId") <- 8))
-            try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 4,
+            try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 5,
+                                            Expression<Int64>("skillId") <- 14))
+            try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 5,
+                                            Expression<Int64>("skillId") <- 11))
+            try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 5,
                                             Expression<Int64>("skillId") <- 9))
+            try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 5,
+                                            Expression<Int64>("skillId") <- 10))
+            try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 6,
+                                            Expression<Int64>("skillId") <- 11))
+            try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 6,
+                                            Expression<Int64>("skillId") <- 12))
+            try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 6,
+                                            Expression<Int64>("skillId") <- 6))
+            try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 6,
+                                            Expression<Int64>("skillId") <- 14))
+            try db.run(jobSkillTable.insert(Expression<Int64>("jobId") <- 6,
+                                            Expression<Int64>("skillId") <- 15))
             
         }catch{
             print(error)

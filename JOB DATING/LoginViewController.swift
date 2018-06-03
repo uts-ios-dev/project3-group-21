@@ -16,12 +16,13 @@ class LoginViewController: UIViewController, AKFViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         dbConfiguration.createTables()
         dbConfiguration.addData()
         dbConfiguration.testQuery()
-        //        dbConfiguration.deletedata();
-        //     dbConfiguration.deleteTables();
-        
+//               dbConfiguration.deletedata();
+//              dbConfiguration.deleteTables();
+//
 
         //Init Account Kit
         if accountKit == nil {

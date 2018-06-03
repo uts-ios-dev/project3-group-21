@@ -21,26 +21,24 @@ class JobDetailsViewController: UIViewController {
     let jobSkillTable = dbConfiguration.jobSkillTable
     let skillTable = dbConfiguration.skillTable
     var skillList:[String] = []
-
-    @IBAction func TappedStartOverButton(_ sender: Any) {
-    presentingViewController?.dismiss(animated: true, completion: nil)
-    }
     
-    @IBAction func AplpyTapped(_ sender: Any) {
+    
+    @IBAction func ApplyButtonTap(_ sender: Any) {
         UIApplication.shared.open(URL(string : "https://goo.gl/forms/BF0GwsVI1nfo6CCz1")!, options: [:], completionHandler: { (status) in
             
         })
     }
+    @IBAction func StartOverButtonTap(_ sender: Any) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         queryInfo()
 
         // Do any additional setup after loading the view.
     }
-   
-//    @IBAction func StartOverButton(_ sender: Any) {
-//        presentingViewController?.dismiss(animated: true, completion: nil)
-//    }
+
     @IBOutlet weak var jobTitle: UITextView!
     @IBOutlet weak var position: UITextView!
     @IBOutlet weak var address: UITextView!
