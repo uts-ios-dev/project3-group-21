@@ -205,9 +205,9 @@
         <!--Sorting Table View Controller-->
         <scene sceneID="n3V-Wt-qCE">
             <objects>
-                <tableViewController id="LNu-2n-lKV" customClass="SortingTableViewController" customModule="JOB_DATING" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SortingTableViewController" id="LNu-2n-lKV" customClass="SortingTableViewController" customModule="JOB_DATING" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gmP-FL-FvV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -228,9 +228,10 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.32658845848092088" green="0.56993270374586336" blue="0.88566628886010368" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <accessibility key="accessibilityConfiguration" identifier="SortingTableViewController"/>
                                 <connections>
                                     <outlet property="optionName" destination="d9W-de-NUl" id="CZb-FH-iNf"/>
-                                    <segue destination="4dh-FC-ATs" kind="show" id="ebj-T1-3yL"/>
+                                    <segue destination="oWv-M0-6VI" kind="unwind" unwindAction="unwindToJobResult:" id="ewZ-F2-1Bo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -241,6 +242,7 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zjz-tu-Pg5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="oWv-M0-6VI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1157.5999999999999" y="-794.75262368815595"/>
         </scene>
@@ -249,7 +251,7 @@
             <objects>
                 <tableViewController id="4dh-FC-ATs" customClass="JobResultTableViewController" customModule="JOB_DATING" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tzH-64-Yoa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="xfw-rr-ilS">
@@ -529,11 +531,11 @@
             <objects>
                 <viewController id="4je-hG-fIF" customClass="JobDetailsViewController" customModule="JOB_DATING" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yuo-kf-KuM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xj-4Y-yp4">
-                                <rect key="frame" x="97" y="488.5" width="180" height="50"/>
+                                <rect key="frame" x="97" y="420.5" width="180" height="50"/>
                                 <color key="backgroundColor" red="0.25882352939999997" green="0.62745098040000002" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="5f4-CC-8Vn"/>
@@ -758,7 +760,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="organization-title"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEm-X2-bPB">
-                                <rect key="frame" x="97" y="413.5" width="180" height="50"/>
+                                <rect key="frame" x="97" y="345.5" width="180" height="50"/>
                                 <color key="backgroundColor" red="0.25882352939999997" green="0.62745098040000002" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="pxf-AQ-rhn"/>
@@ -807,7 +809,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="b5l-OT-XSH"/>
         <segue reference="fbb-qN-Wn2"/>
-        <segue reference="ebj-T1-3yL"/>
+        <segue reference="Ygp-Va-otp"/>
         <segue reference="8pF-Mr-P4g"/>
     </inferredMetricsTieBreakers>
 </document>

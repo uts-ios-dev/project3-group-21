@@ -8,7 +8,17 @@
 
 import UIKit
 
+
+protocol SortingDelegate: class {
+    func sorting(option: String)
+}
+
 class SortingTableViewController: UITableViewController {
+    
+    weak var sortingdelegate: SortingDelegate?
+    
+    private var selectedIndexPath: NSIndexPath?
+//    var selectedRowIndex = self.tableView.indexPathForSelectedRow
     var skillList = [String]()
     var category = ""
     
@@ -48,24 +58,26 @@ class SortingTableViewController: UITableViewController {
         
         cell?.optionName.text = sortingOption[indexPath.row]
         cell?.selectionStyle = .default
-
+        sortingdelegate!.sorting(option: sortingOption[self.tableView.indexPathForSelectedRow!.row])
+        
         // Configure the cell...
+        
 
         return cell!
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if segue.destination is JobResultTableViewController
-        {
-            var selectedRowIndex = self.tableView.indexPathForSelectedRow
-            let vc = segue.destination as? JobResultTableViewController
-            vc?.skillList = skillList
-            vc?.categoryName = category
-            vc?.option = sortingOption[selectedRowIndex!.row]
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+//    {
+//        if segue.destination is JobResultTableViewController
+//        {
+//            var selectedRowIndex = self.tableView.indexPathForSelectedRow
+//            let vc = segue.destination as? JobResultTableViewController
+//            vc?.skillList = skillList
+//            vc?.categoryName = category
+//            vc?.option = sortingOption[selectedRowIndex!.row]
+//        }
+//    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

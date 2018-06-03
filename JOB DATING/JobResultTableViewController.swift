@@ -9,7 +9,7 @@
 import UIKit
 import SQLite
 
-class JobResultTableViewController: UITableViewController {
+class JobResultTableViewController: UITableViewController,SortingDelegate {
     var categoryName = ""
     var skillList = [String] ()
     var jobName = ""
@@ -19,11 +19,12 @@ class JobResultTableViewController: UITableViewController {
     var jobResults = [Job] ()
     var jobId: Int64 = 0
     var option = "default"
-    
+    var sortingVc:SortingTableViewController!
   
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        print("did")
+        afterSelecting()
         queryJobResults()
 
         // Uncomment the following line to preserve selection between presentations
@@ -71,6 +72,11 @@ class JobResultTableViewController: UITableViewController {
             jobResults = jobResults.sorted(by: {$0.matched > $1.matched})
         }
         
+    }
+    
+    func sorting(option: String){
+        self.option = option
+        tableView.reloadData()
     }
 
     
@@ -173,6 +179,13 @@ class JobResultTableViewController: UITableViewController {
             vc?.skillList = skillList
             vc?.category = categoryName
         }
+    }
+    
+    func afterSelecting()
+    {
+        sortingVc = storyboard?.instantiateViewController(withIdentifier: "SortingTableViewController") as! SortingTableViewController
+        sortingVc.sortingdelegate = self
+        sortingVc.view.bounds = CGRect(x: 0, y: 0, width: view.bounds.width, height: 200)
     }
     
     @IBAction func unwindToJobResult(_ sender: UIStoryboardSegue){
