@@ -25,6 +25,9 @@ class JobCatTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dbConfiguration.createTables()
+        dbConfiguration.addData()
+        dbConfiguration.testQuery()
         createSearchbar()
         queryJobName()
         queryJobCategory()

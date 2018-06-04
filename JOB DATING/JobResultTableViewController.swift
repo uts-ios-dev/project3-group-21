@@ -178,6 +178,14 @@ class JobResultTableViewController: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print(option)
+        super.viewDidAppear(animated)
+        sortBy(type: option)
+        tableView.reloadData()
+//        queryJobResults()
+    }
+    
 
 //    override func viewWillAppear(_ animated: Bool) {
 //        print(option)
